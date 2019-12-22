@@ -12,7 +12,7 @@ window.onload = () => {
   const r3c2 = document.querySelector('[data-row="3"][data-column="2"]');
   const r3c3 = document.querySelector('[data-row="3"][data-column="3"]');
 
-  const tiles       = [...document.querySelectorAll('[role="button"]')];
+  const tiles       = Array.from(document.querySelectorAll('[role="button"]'));
   const restartBtn  = document.querySelector('a.restart');
   const mainGameEl  = document.querySelector('.tiles-box');
 
@@ -27,12 +27,14 @@ window.onload = () => {
     let tile = pickRandomTile();
     if (!alreadyPlayedOnTile(tile)) {
       tile.classList.add('o');
-      mainGameEl.classList.remove('disable');
+      if (!validWin()) {
+        mainGameEl.classList.remove('disable');
+      }
     } else {
       try {
         computerPlay();
       } catch(e) {
-        // gameOver();
+        // draw();
       }
     }
   }
@@ -40,13 +42,17 @@ window.onload = () => {
   function humanPlay() {
     // human must not be able to play on existing tile
     for (let i = 0; i < tiles.length; i++) {
-      tiles[i].addEventListener('click', function() {        
-        this.classList.add('x');
-        mainGameEl.classList.add('disable');
-        let compMove = setInterval(() => {
-          computerPlay();
-          clearInterval(compMove);
-        }, 500);
+      tiles[i].addEventListener('click', function() {    
+        if (!alreadyPlayedOnTile(this)) {
+          this.classList.add('x');
+          if (!validWin()) {
+            mainGameEl.classList.add('disable');
+            let compMove = setInterval(() => {
+              computerPlay();
+              clearInterval(compMove);
+            }, 500); 
+          }          
+        }
       })
     }
   }
@@ -56,6 +62,56 @@ window.onload = () => {
     return tiles[random];
   }
 
+  function validWin() {
+    if (r1c1.classList.contains('x') && r1c2.classList.contains('x') && r1c3.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c1.classList.contains('o') && r1c2.classList.contains('o') && r1c3.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r2c1.classList.contains('x') && r2c2.classList.contains('x') && r2c3.classList.contains('x')) {
+      return winner('x');
+    } else if (r2c1.classList.contains('o') && r2c2.classList.contains('o') && r2c3.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r3c1.classList.contains('x') && r3c2.classList.contains('x') && r3c3.classList.contains('x')) {
+      return winner('x');
+    } else if (r3c1.classList.contains('o') && r3c2.classList.contains('o') && r3c3.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r1c1.classList.contains('x') && r2c1.classList.contains('x') && r3c1.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c1.classList.contains('o') && r2c1.classList.contains('o') && r3c1.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r1c2.classList.contains('x') && r2c2.classList.contains('x') && r3c2.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c2.classList.contains('o') && r2c2.classList.contains('o') && r3c2.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r1c3.classList.contains('x') && r2c3.classList.contains('x') && r3c3.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c3.classList.contains('o') && r2c3.classList.contains('o') && r3c3.classList.contains('o')) {
+      return winner('o');
+    }
+
+    if (r1c1.classList.contains('x') && r2c2.classList.contains('x') && r3c3.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c1.classList.contains('o') && r2c2.classList.contains('o') && r3c3.classList.contains('o')) {
+      return winner('o');
+    }
+    
+    if (r1c3.classList.contains('x') && r2c2.classList.contains('x') && r3c1.classList.contains('x')) {
+      return winner('x');
+    } else if (r1c3.classList.contains('o') && r2c2.classList.contains('o') && r3c1.classList.contains('o')) {
+      return winner('o');
+    }
+  }
+
   function restartGame() {
     for (let i = 0; i < tiles.length; i++) {
       tiles[i].className = '';
@@ -63,7 +119,12 @@ window.onload = () => {
     mainGameEl.classList.remove('disable');
   }
 
-  (function startGame() {
+  function winner(i) {
+    console.log(`${i} has won the game!`);
+    return true;
+  }
+
+  (function() {
     humanPlay();
   })();
 
