@@ -16,6 +16,8 @@ window.onload = () => {
   const restartBtn  = document.querySelector('a.restart');
   const mainGameEl  = document.querySelector('.tiles-box');
 
+  const winAlertEl = document.querySelector('.win-alert');
+
   // if a tile has already been played on.
   function alreadyPlayedOnTile(tile) {
     if (tile.classList.contains('x') || tile.classList.contains('o')) {
@@ -64,51 +66,51 @@ window.onload = () => {
 
   function validWin() {
     if (r1c1.classList.contains('x') && r1c2.classList.contains('x') && r1c3.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c1.classList.contains('o') && r1c2.classList.contains('o') && r1c3.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r2c1.classList.contains('x') && r2c2.classList.contains('x') && r2c3.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r2c1.classList.contains('o') && r2c2.classList.contains('o') && r2c3.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r3c1.classList.contains('x') && r3c2.classList.contains('x') && r3c3.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r3c1.classList.contains('o') && r3c2.classList.contains('o') && r3c3.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r1c1.classList.contains('x') && r2c1.classList.contains('x') && r3c1.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c1.classList.contains('o') && r2c1.classList.contains('o') && r3c1.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r1c2.classList.contains('x') && r2c2.classList.contains('x') && r3c2.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c2.classList.contains('o') && r2c2.classList.contains('o') && r3c2.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r1c3.classList.contains('x') && r2c3.classList.contains('x') && r3c3.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c3.classList.contains('o') && r2c3.classList.contains('o') && r3c3.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
 
     if (r1c1.classList.contains('x') && r2c2.classList.contains('x') && r3c3.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c1.classList.contains('o') && r2c2.classList.contains('o') && r3c3.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
     
     if (r1c3.classList.contains('x') && r2c2.classList.contains('x') && r3c1.classList.contains('x')) {
-      return winner('x');
+      return winner('X');
     } else if (r1c3.classList.contains('o') && r2c2.classList.contains('o') && r3c1.classList.contains('o')) {
-      return winner('o');
+      return winner('O');
     }
   }
 
@@ -116,11 +118,14 @@ window.onload = () => {
     for (let i = 0; i < tiles.length; i++) {
       tiles[i].className = '';
     }
+    winAlertEl.innerHTML = '';
     mainGameEl.classList.remove('disable');
   }
 
   function winner(i) {
-    console.log(`${i} has won the game!`);
+    // console.log(`${i} has won the game!`);
+    let emoticon = (i === 'O') ? '🙁' : '😊';
+    winAlertEl.innerHTML = `Player ${i} wins! <span>${emoticon}</span>`;
     return true;
   }
 
