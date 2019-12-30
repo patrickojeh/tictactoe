@@ -123,7 +123,7 @@ window.onload = () => {
   }
 
   function winner(i) {
-    // console.log(`${i} has won the game!`);
+    // where O is Computer & X is Human
     let emoticon = (i === 'O') ? '🙁' : '😊';
     winAlertEl.innerHTML = `Player ${i} wins! <span>${emoticon}</span>`;
     return true;
