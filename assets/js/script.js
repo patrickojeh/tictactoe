@@ -36,7 +36,7 @@ window.onload = () => {
       try {
         computerPlay();
       } catch(e) {
-        // draw();
+        winAlertEl.innerHTML = `Draw! <span>😬</span>`;
       }
     }
   }
