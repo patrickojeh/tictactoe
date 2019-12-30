@@ -9,7 +9,7 @@ $white: #fff;
   font-family: inter;
 }
 body {
-  background: #F9F6EF; //#FAFAFA;
+  background: #F9F6EF;
   font-family: 'inter';
 }
 .main {
@@ -25,12 +25,13 @@ body {
     margin-right: 300px;
     opacity: 1;
     padding: 12px 14px 13px;
-    position: absolute;
+    position: absolute;    
     transform: translate(365px, 10px);
-    z-index: 3;
+    transition: .2s ease-in all;
     &:empty {
       opacity: 0;
-      transform: translate(0, 10px);
+      transform: translate(300, 10px);
+      transition: 0s ease-in all;
     }
     span {
       font-size: 1.5rem;
