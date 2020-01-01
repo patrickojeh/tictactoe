@@ -1,7 +1,6 @@
 'use strict';
 
 window.onload = () => {
-
   const r1c1 = document.querySelector('[data-row="1"][data-column="1"]');
   const r1c2 = document.querySelector('[data-row="1"][data-column="2"]');
   const r1c3 = document.querySelector('[data-row="1"][data-column="3"]');
@@ -12,16 +11,16 @@ window.onload = () => {
   const r3c2 = document.querySelector('[data-row="3"][data-column="2"]');
   const r3c3 = document.querySelector('[data-row="3"][data-column="3"]');
 
-  const tiles       = Array.from(document.querySelectorAll('[role="button"]'));
-  const restartBtn  = document.querySelector('a.restart');
-  const mainGameEl  = document.querySelector('.tiles-box');
+  const tiles = Array.from(document.querySelectorAll('[role="button"]'));
+  const restartBtn = document.querySelector('a.restart');
+  const mainGameEl = document.querySelector('.tiles-box');
 
   const winAlertEl = document.querySelector('.win-alert');
 
   // if a tile has already been played on.
   function alreadyPlayedOnTile(tile) {
     if (tile.classList.contains('x') || tile.classList.contains('o')) {
-      return true
+      return true;
     }
   }
 
@@ -35,7 +34,7 @@ window.onload = () => {
     } else {
       try {
         computerPlay();
-      } catch(e) {
+      } catch (e) {
         winAlertEl.innerHTML = `Draw! <span>😬</span>`;
       }
     }
@@ -44,7 +43,7 @@ window.onload = () => {
   function humanPlay() {
     // human must not be able to play on existing tile
     for (let i = 0; i < tiles.length; i++) {
-      tiles[i].addEventListener('click', function() {    
+      tiles[i].addEventListener('click', function() {
         if (!alreadyPlayedOnTile(this)) {
           this.classList.add('x');
           if (!validWin()) {
@@ -52,10 +51,10 @@ window.onload = () => {
             let compMove = setInterval(() => {
               computerPlay();
               clearInterval(compMove);
-            }, 500); 
-          }          
+            }, 500);
+          }
         }
-      })
+      });
     }
   }
 
@@ -106,7 +105,7 @@ window.onload = () => {
     } else if (r1c1.classList.contains('o') && r2c2.classList.contains('o') && r3c3.classList.contains('o')) {
       return winner('O');
     }
-    
+
     if (r1c3.classList.contains('x') && r2c2.classList.contains('x') && r3c1.classList.contains('x')) {
       return winner('X');
     } else if (r1c3.classList.contains('o') && r2c2.classList.contains('o') && r3c1.classList.contains('o')) {
@@ -124,7 +123,7 @@ window.onload = () => {
 
   function winner(i) {
     // where O is Computer & X is Human
-    let emoticon = (i === 'O') ? '🙁' : '😊';
+    let emoticon = i === 'O' ? '🙁' : '😊';
     winAlertEl.innerHTML = `Player ${i} wins! <span>${emoticon}</span>`;
     return true;
   }
@@ -133,9 +132,8 @@ window.onload = () => {
     humanPlay();
   })();
 
-  restartBtn.onclick = (e) => {
+  restartBtn.onclick = e => {
     e.preventDefault();
     restartGame();
-  }
-
-}
+  };
+};
