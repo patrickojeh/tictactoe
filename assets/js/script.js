@@ -47,9 +47,8 @@ function humanPlay() {
         this.classList.add('x');
         if (!validWin()) {
           mainGameEl.classList.add('disable');
-          let compMove = setInterval(() => {
+          let compMove = setTimeout(() => {
             computerPlay();
-            clearInterval(compMove);
           }, 500);
         }
       }
