@@ -63,115 +63,51 @@ function pickRandomTile() {
 }
 
 function validWin() {
-  if (
-    r1c1.classList.contains('x') &&
-    r1c2.classList.contains('x') &&
-    r1c3.classList.contains('x')
-  ) {
+  if (r1c1.classList.contains('x') && r1c2.classList.contains('x') && r1c3.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c1.classList.contains('o') &&
-    r1c2.classList.contains('o') &&
-    r1c3.classList.contains('o')
-  ) {
+  } else if (r1c1.classList.contains('o') && r1c2.classList.contains('o') && r1c3.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r2c1.classList.contains('x') &&
-    r2c2.classList.contains('x') &&
-    r2c3.classList.contains('x')
-  ) {
+  if (r2c1.classList.contains('x') && r2c2.classList.contains('x') && r2c3.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r2c1.classList.contains('o') &&
-    r2c2.classList.contains('o') &&
-    r2c3.classList.contains('o')
-  ) {
+  } else if (r2c1.classList.contains('o') && r2c2.classList.contains('o') && r2c3.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r3c1.classList.contains('x') &&
-    r3c2.classList.contains('x') &&
-    r3c3.classList.contains('x')
-  ) {
+  if (r3c1.classList.contains('x') && r3c2.classList.contains('x') && r3c3.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r3c1.classList.contains('o') &&
-    r3c2.classList.contains('o') &&
-    r3c3.classList.contains('o')
-  ) {
+  } else if (r3c1.classList.contains('o') && r3c2.classList.contains('o') && r3c3.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r1c1.classList.contains('x') &&
-    r2c1.classList.contains('x') &&
-    r3c1.classList.contains('x')
-  ) {
+  if (r1c1.classList.contains('x') && r2c1.classList.contains('x') && r3c1.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c1.classList.contains('o') &&
-    r2c1.classList.contains('o') &&
-    r3c1.classList.contains('o')
-  ) {
+  } else if (r1c1.classList.contains('o') && r2c1.classList.contains('o') && r3c1.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r1c2.classList.contains('x') &&
-    r2c2.classList.contains('x') &&
-    r3c2.classList.contains('x')
-  ) {
+  if (r1c2.classList.contains('x') && r2c2.classList.contains('x') && r3c2.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c2.classList.contains('o') &&
-    r2c2.classList.contains('o') &&
-    r3c2.classList.contains('o')
-  ) {
+  } else if (r1c2.classList.contains('o') && r2c2.classList.contains('o') && r3c2.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r1c3.classList.contains('x') &&
-    r2c3.classList.contains('x') &&
-    r3c3.classList.contains('x')
-  ) {
+  if (r1c3.classList.contains('x') && r2c3.classList.contains('x') && r3c3.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c3.classList.contains('o') &&
-    r2c3.classList.contains('o') &&
-    r3c3.classList.contains('o')
-  ) {
+  } else if (r1c3.classList.contains('o') && r2c3.classList.contains('o') && r3c3.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r1c1.classList.contains('x') &&
-    r2c2.classList.contains('x') &&
-    r3c3.classList.contains('x')
-  ) {
+  if (r1c1.classList.contains('x') && r2c2.classList.contains('x') && r3c3.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c1.classList.contains('o') &&
-    r2c2.classList.contains('o') &&
-    r3c3.classList.contains('o')
-  ) {
+  } else if (r1c1.classList.contains('o') && r2c2.classList.contains('o') && r3c3.classList.contains('o')) {
     return winner('O');
   }
 
-  if (
-    r1c3.classList.contains('x') &&
-    r2c2.classList.contains('x') &&
-    r3c1.classList.contains('x')
-  ) {
+  if (r1c3.classList.contains('x') && r2c2.classList.contains('x') && r3c1.classList.contains('x')) {
     return winner('X');
-  } else if (
-    r1c3.classList.contains('o') &&
-    r2c2.classList.contains('o') &&
-    r3c1.classList.contains('o')
-  ) {
+  } else if (r1c3.classList.contains('o') && r2c2.classList.contains('o') && r3c1.classList.contains('o')) {
     return winner('O');
   }
 }
