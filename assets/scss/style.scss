@@ -1,6 +1,6 @@
 // colors.
 $black: #000;
-$blue: #1A25FB;
+$blue: #1a25fb;
 $dark--purple: #00040e;
 $white: #fff;
 
@@ -9,25 +9,26 @@ $white: #fff;
   font-family: inter;
 }
 body {
-  background: #F9F6EF;
-  font-family: 'inter';
+  background: #f9f6ef;
+  font-family: "inter";
+  margin: 0;
 }
 .main {
   height: 100%;
   margin: 100px auto;
   width: 340px;
   .win-alert {
-    background: rgba($black, .85);
+    background: rgba($black, 0.85);
     border-radius: 4px;
     color: $white;
     display: inline-block;
-    font-size: .85rem;
+    font-size: 0.85rem;
     margin-right: 300px;
     opacity: 1;
     padding: 12px 14px 13px;
-    position: absolute;    
+    position: absolute;
     transform: translate(370px, 10px);
-    transition: .2s ease-in all;
+    transition: 0.2s ease-in all;
     &:empty {
       opacity: 0;
       transform: translate(300, 10px);
@@ -42,9 +43,9 @@ body {
   }
 }
 .tiles-box {
-  background: rgba($black, .05);
+  background: rgba($black, 0.05);
   border-radius: 8px;
-  box-shadow: 0 15px 35px rgba(50,50,93,.1), 0 5px 15px rgba(0,0,0,.07);
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   column-gap: 2px;
   cursor: pointer;
   display: grid;
@@ -63,25 +64,25 @@ body {
     background-repeat: no-repeat;
     background-size: 40px;
     &.x {
-      background-image: url('../img/x.svg');
+      background-image: url("../img/x.svg");
     }
     &.o {
-      background-image: url('../img/o.svg');
+      background-image: url("../img/o.svg");
     }
   }
 }
 a.restart {
-  animation: .5s ease-in introBtn;
+  animation: 0.5s ease-in introBtn;
   background: #f74e1c;
   border-radius: 30px;
-  box-shadow: 0 15px 35px rgba(50,50,93,0.1), 0 5px 15px rgba(0,0,0,0.07);
+  box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);
   color: $white;
   display: inline-block;
-  font-size: .85rem;
+  font-size: 0.85rem;
   font-weight: 500;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   padding: 20px 32px 21px;
-  text-decoration: none;  
+  text-decoration: none;
   text-transform: uppercase;
   @keyframes introBtn {
     0% {
@@ -105,7 +106,7 @@ a.restart {
     fill: none;
     height: 12px;
     margin-right: 6px;
-    opacity: .7;
+    opacity: 0.7;
     position: relative;
     stroke: currentColor;
     stroke-width: 3.5px;
@@ -113,7 +114,7 @@ a.restart {
     width: 12px;
   }
   &:focus > svg {
-    animation: .4s ease-in rotate;
+    animation: 0.4s ease-in rotate;
   }
 }
 .foot {
@@ -122,4 +123,17 @@ a.restart {
   position: absolute;
   text-align: center;
   width: 100%;
+}
+div#ns {
+  background: #4b38f1;
+  color: $white;
+  text-align: center;
+  padding: 11px 0 15px;
+  font-size: 0.83rem;
+  a {
+    color: $white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba($white, 0.7);
+    padding-bottom: 2px;
+  }
 }

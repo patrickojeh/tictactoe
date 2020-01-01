@@ -1,35 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Tic Tac Toe</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-</head>
-<body>
-  <div class="main">
-    <div class="win-alert"></div>
-    <div class="tiles-box">
-      <div data-row="1" data-column="1" role="button"></div>
-      <div data-row="1" data-column="2" role="button"></div>
-      <div data-row="1" data-column="3" role="button"></div>
-      <div data-row="2" data-column="1" role="button"></div>
-      <div data-row="2" data-column="2" role="button"></div>
-      <div data-row="2" data-column="3" role="button"></div>
-      <div data-row="3" data-column="1" role="button"></div>
-      <div data-row="3" data-column="2" role="button"></div>
-      <div data-row="3" data-column="3" role="button"></div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <noscript>
+      <div id="ns">
+        ⚠️ Tictactoe depends on javascript to work. Please see
+        <a href="http://www.enable-javascript.com" target="_blank">
+          instructions how to enable JavaScript
+        </a>
+        &nbsp; 🔗
+      </div>
+    </noscript>
+  </head>
+  <body>
+    <div class="main">
+      <div class="win-alert"></div>
+      <div class="tiles-box">
+        <div data-row="1" data-column="1" role="button"></div>
+        <div data-row="1" data-column="2" role="button"></div>
+        <div data-row="1" data-column="3" role="button"></div>
+        <div data-row="2" data-column="1" role="button"></div>
+        <div data-row="2" data-column="2" role="button"></div>
+        <div data-row="2" data-column="3" role="button"></div>
+        <div data-row="3" data-column="1" role="button"></div>
+        <div data-row="3" data-column="2" role="button"></div>
+        <div data-row="3" data-column="3" role="button"></div>
+      </div>
+      <div class="foot">
+        <a href="" class="restart">
+          <svg class="feather">
+            <use xlink:href="assets/img/feather-sprite.svg#rotate-ccw" />
+          </svg>
+          Restart
+        </a>
+      </div>
     </div>
-    <div class="foot">
-      <a href="" class="restart">
-        <svg class="feather">
-          <use xlink:href="assets/img/feather-sprite.svg#rotate-ccw"/>
-        </svg>
-        Restart
-      </a>
-    </div>
-  </div>
-  <script src="assets/js/script.js"></script>
-</body>
+    <script src="assets/js/script.js"></script>
+  </body>
 </html>
