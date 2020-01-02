@@ -41,8 +41,8 @@ function computerPlay() {
 
 function humanPlay() {
   // human must not be able to play on existing tile
-  for (let i = 0; i < tiles.length; i++) {
-    tiles[i].addEventListener('click', function() {
+  tiles.forEach(tile => {
+    tile.addEventListener('click', function() {
       if (!alreadyPlayedOnTile(this)) {
         this.classList.add('x');
         if (!validWin()) {
@@ -53,7 +53,7 @@ function humanPlay() {
         }
       }
     });
-  }
+  });
 }
 
 function pickRandomTile() {
@@ -112,9 +112,9 @@ function validWin() {
 }
 
 function restartGame() {
-  for (let i = 0; i < tiles.length; i++) {
-    tiles[i].className = '';
-  }
+  tiles.forEach(tile => {
+    tile.className = '';
+  });
   winAlertEl.innerHTML = '';
   mainGameEl.classList.remove('disable');
 }
