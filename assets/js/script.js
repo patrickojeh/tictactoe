@@ -11,9 +11,7 @@ const r3c2 = document.querySelector('[data-row="3"][data-column="2"]');
 const r3c3 = document.querySelector('[data-row="3"][data-column="3"]');
 
 const tiles = Array.from(document.querySelectorAll('[role="button"]'));
-const restartBtn = document.querySelector('a.restart');
 const mainGameEl = document.querySelector('.tiles-box');
-
 const winAlertEl = document.querySelector('.win-alert');
 
 // if a tile has already been played on.
@@ -47,7 +45,7 @@ function humanPlay() {
         this.classList.add('x');
         if (!validWin()) {
           mainGameEl.classList.add('disable');
-          let compMove = setTimeout(() => {
+          setTimeout(() => {
             computerPlay();
           }, 500);
         }
@@ -126,11 +124,9 @@ function winner(i) {
   return true;
 }
 
-(function() {
-  humanPlay();
-})();
+humanPlay();
 
-restartBtn.onclick = e => {
+document.querySelector('a.restart').onclick = e => {
   e.preventDefault();
   restartGame();
 };
